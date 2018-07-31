@@ -47,12 +47,8 @@ class App extends Component {
   // save generated playList to Spotify account
   savePlayList(){
     let trackUris = this.state.playListTracks.map(track => track.uri);
-    Spotify.savePlayList(this.state.playListName, trackUris).then(() =>{
-      this.setState({
-        playListName: 'New Playlist',
-        playListTracks: []
-      })
-    })
+    Spotify.savePlayList(this.state.playListName, trackUris);
+    this.setState({playListName: 'New PlayList', playListTracks: []});
   }
 
   //  to search a Song
